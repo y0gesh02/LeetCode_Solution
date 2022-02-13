@@ -1,29 +1,18 @@
 class Solution {
-    // private:
-    void subsets(vector<int>& nums, int i, vector<int>& sub, vector<vector<int>>& answerVector) 
-    {
-        answerVector.push_back(sub);
-        for (int j = i; j < nums.size(); j++) {
-            sub.push_back(nums[j]);
-            subsets(nums, j + 1, sub, answerVector);
-            sub.pop_back();
-    }
-    }
 public:
-     vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> answerVector;
-        vector<int> sub;
-        subsets(nums, 0, sub, answerVector);
-        return answerVector;
+    void subset(int index,vector<int>&nums,vector<vector<int>>&ans,vector<int>&temp){
+        ans.push_back(temp);// push the current subset into the resultant array
+        for(int i=index;i<nums.size();i++){
+            temp.push_back(nums[i]);// add the current element to consider the subsets corresponding to it
+              subset(i+1,nums,ans,temp);
+              temp.pop_back(); // as this has been used, pop it
+        }
     }
-// // private:
-//     void subsets(vector<int>& nums, int i, vector<int>& sub, vector<vector<int>>& answerVector) 
-//     {
-//         answerVector.push_back(sub);
-//         for (int j = i; j < nums.size(); j++) {
-//             sub.push_back(nums[j]);
-//             subsets(nums, j + 1, sub, answerVector);
-//             sub.pop_back();
-//         }
-   // }
+    vector<vector<int>> subsets(vector<int>& nums) {
+         vector<vector<int>>ans;
+         vector<int>temp;
+         subset(0,nums,ans,temp);
+         return ans;
+     }
+
 };
