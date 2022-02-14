@@ -13,7 +13,7 @@ public:
            }
        }
         while(k>0 && !ans.empty() ){
-            ans.pop_back();
+            ans.pop_back(); 
             k--;
             
         }
