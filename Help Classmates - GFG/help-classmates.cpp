@@ -20,8 +20,8 @@ class Solution{
             while(!s.empty() && s.top()>=arr[i]){
                 s.pop();
             }
-            ans[i]=s.empty()?-1:s.top();
-            s.push(arr[i]);
+         ans[i]=s.empty()?-1:s.top();
+         s.push(arr[i]);
         }
         return ans;
     } 
