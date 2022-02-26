@@ -1,22 +1,25 @@
 class MinStack {
 public:
     stack<int>s;
-        stack<int>min;
+    int mini=INT_MAX;
     MinStack() {
         
     }
     
     void push(int val) {
-        s.push(val);
-        if(min.size()==0 || val<=min.top()){
-            min.push(val);
+        
+        if(mini>=val){
+            s.push(mini);
+            mini=val;
             
         }
+        s.push(val);
     }
     
     void pop() {
-        if(min.top()==s.top()){
-            min.pop();
+        if(mini==s.top()){
+            s.pop();
+            mini=s.top();
         }
         s.pop();
     }
@@ -26,7 +29,7 @@ public:
     }
     
     int getMin() {
-        return min.top();
+        return mini;
     }
 };
 
