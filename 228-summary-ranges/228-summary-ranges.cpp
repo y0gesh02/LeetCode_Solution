@@ -1,29 +1,27 @@
 class Solution {
 public:
-    void push(vector<string>& v, int p1, int p2){
-        if(p1==p2){
-            v.push_back(to_string(p1));
-        }
-        else{
-            v.push_back(to_string(p1)+"->"+to_string(p2));
-        }
-    }
     vector<string> summaryRanges(vector<int>& nums) {
-        vector<string> v;
-        if(nums.size()==0) return v;
-        int p1=nums[0];
-        int p2=nums[0];
-        for(int i=1; i<nums.size(); i++){
-            if(nums[i]==nums[i-1]+1){
-                p2=nums[i];
+        vector<string> ans;
+        int n=nums.size();
+        if(n==0)return {};
+        
+        for(int i=0;i<n;i++){
+            int start=nums[i];
+             while(i+1< n && nums[i+1] == nums[i]+1) {  
+                i++;
+            }
+            
+            if(start!=nums[i]){
+                string s=to_string(start);
+                string e=to_string(nums[i]);
+               string f = s+ "->" + e;
+                ans.push_back(f);
             }
             else{
-                push(v,p1,p2);
-                p1=nums[i];
-                p2=nums[i];
+                 string temp=to_string(start);
+                ans.push_back(temp);
             }
         }
-        push(v,p1,p2);
-        return v;
+        return ans;
     }
 };
