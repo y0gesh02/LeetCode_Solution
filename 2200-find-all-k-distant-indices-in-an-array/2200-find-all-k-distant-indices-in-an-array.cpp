@@ -8,13 +8,11 @@ public:
             bool x=false;
             for(int j=0;j<n;j++){
             if(abs(i-j)<=k && nums[j]==key){
-                x=true;
+               ans.push_back(i);
+                break;
             }
             }
-             if(x){
-                   ans.push_back(i);
-             }
-        
+           
         }
         return ans;
     }
