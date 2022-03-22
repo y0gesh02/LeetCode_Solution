@@ -1,9 +1,9 @@
 class Solution {
 public:
     //first need to store the char with index;
-    //
-    //
-    vector<int> partitionLabels(string s) {
+    //take maxIndx and Lastidx ; 
+    //for push in ans when  i==maxIndx bcz agar first me tho maxi me ex-1 hoga but rightis 9;
+    vector< int> partitionLabels(string s) {
         vector<int>charidx(26,0);
         for(int i=0;i<s.size();i++){
             charidx[s[i]-'a'] = i;
