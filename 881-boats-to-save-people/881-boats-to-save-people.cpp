@@ -7,21 +7,9 @@ public:
         int cnt=0;
         int i=0,j=n-1;
         while(i<=j){
-          // sum+=people[i];
-             if(limit== people[i]){
-                  cnt++;
-                 i++;
-            }
-            else if (limit== people[j]){
-                 cnt++;
-                 j--;
-            }
-            else if(people[j]+people[i]==limit){
-                 cnt++;
-                i++;
-                 j--;
-            }
-            else if(people[j]+people[i]<limit){
+    
+          
+             if(people[j]+people[i]<=limit){
                 cnt++;
                 i++;
                 j--;
