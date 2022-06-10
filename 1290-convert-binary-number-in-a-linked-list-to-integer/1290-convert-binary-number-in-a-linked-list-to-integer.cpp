@@ -7,7 +7,6 @@ public:
             ans*=2;
             ans+=temp->val;
             temp=temp->next;
-            
         }
        return ans;
     }
