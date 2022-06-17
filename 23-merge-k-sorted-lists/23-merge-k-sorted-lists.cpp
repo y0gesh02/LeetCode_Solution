@@ -42,11 +42,11 @@ public:
         //     lists.erase(lists.begin());
         //     lists.erase(lists.begin());
         //     ListNode* head = lists[0];
-        ListNode* head = lists[0];
+        //ListNode* head = lists[0];
         for(int i=1; i<n; i++){
-            head = mergeTwoLists(head, lists[i]);
+            lists[0] = mergeTwoLists(lists[0], lists[i]);
         }
-        return head;
+        return lists[0];
         
     }
 };
