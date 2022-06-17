@@ -5,7 +5,7 @@
  */
 var strStr = function(haystack, needle) {
    
-    //var output = 0;
+    if (needle === '' || needle === haystack) return 0; 
     var left = 0;
     var right = needle.length;
 
