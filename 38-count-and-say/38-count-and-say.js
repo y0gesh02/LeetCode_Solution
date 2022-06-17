@@ -1,7 +1,3 @@
-/**
- * @param {number} n
- * @return {string}
- */
 var countAndSay = function(n) {
          let ans = '1';
          for(let i=0; i<n-1 ; i++){
