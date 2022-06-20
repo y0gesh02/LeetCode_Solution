@@ -10,7 +10,7 @@ public:
                node=node->left;
            } 
             else{
-                if(st.empty()==true)break;
+                if(st.empty())break;
                 node=st.top();
                 st.pop();
                 ans.push_back(node->val);
