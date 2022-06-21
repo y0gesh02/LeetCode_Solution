@@ -2,12 +2,15 @@ class Solution {
 public:
     int arrayPairSum(vector<int>& nums) {
         sort(nums.begin(),nums.end());
+        int i=0;
+        int j=1;
         int sum=0;
-        int mini=0;
-        for(int i=0;i<nums.size()-1;i+=2){
-            sum+=min(nums[i+1],nums[i]);
-            mini=0;
+        while(j<nums.size()){
+            sum+=min(nums[i],nums[j]);
+            i+=2;
+            j+=2;
         }
+           
         return sum;
     }
 };
