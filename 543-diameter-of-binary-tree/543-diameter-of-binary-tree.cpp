@@ -5,7 +5,7 @@ public:
         maxdia(root,maxi);
         return maxi;
     }
-private:
+// private:
     int maxdia(TreeNode* root,int&maxi){
         if(root==NULL) {
             return 0;
