@@ -17,7 +17,7 @@ public:
         int m=nums2.size();
      
         for(int i=0;i<m;i++){
-            if( mp[nums2[i]]>0){
+            if( mp[nums2[i]]){
                 mp[nums2[i]]--;
                 ans.push_back(nums2[i]);
             }
