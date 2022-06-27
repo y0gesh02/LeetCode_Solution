@@ -7,26 +7,21 @@ public:
             temp=temp->next;
             cnt+=1;
         }
-        //cout<<cnt;
         int r=cnt-n;
-        //cout<<r;
         if(cnt==n){
             ListNode* temp1 = head;
-         head = head->next;
-        // delete temp1;
-        return head;
-        };
+            head = head->next;
+            return head;
+        }
         temp=head;
         cnt=1;
-       // ListNode*prev=head;
-         while(temp->next!=NULL){
+        while(temp->next!=NULL){
              if(cnt==r){
-                  temp->next=temp->next->next;
+                 temp->next=temp->next->next;
                  break;
              }
-             
              temp=temp->next;
-            cnt+=1;
+             cnt+=1;
          }
         return head;
     }
