@@ -1,13 +1,28 @@
 class Solution {
 public:
-    bool solve(TreeNode* l,TreeNode* r){
-        if(l==NULL && r==NULL)return true;
-        if(l==NULL || r==NULL)return false;
-        return l->val==r->val && solve(l->right,r->left)  &&  solve(l->left,r->right);
-    }
     bool isSymmetric(TreeNode* root) {
-               if(root==NULL)return true;
-               return solve(root->left ,root->right);
-                
+        if(!root) return true;
+        queue<TreeNode*> q;
+        q.push(root->left);
+        q.push(root->right);
+        while(!q.empty()){
+            TreeNode *left=q.front();
+            q.pop();
+            TreeNode *right=q.front();
+            q.pop();
+            if(left==NULL && right==NULL){
+                continue;
+            }
+             if(left==NULL || right==NULL){
+                return false;
+            }
+            if(left->val!=right->val)
+                return false;
+            q.push(left->left);
+            q.push(right->right);
+            q.push(left->right);
+            q.push(right->left);
+        }
+        return true;
     }
 };
