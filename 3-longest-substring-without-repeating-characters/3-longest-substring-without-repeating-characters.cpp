@@ -1,25 +1,25 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        unordered_set<char> set;
-    
-		int i = 0, j = 0, n = s.size(), ans = 0;
-    
-		while( i<n && j<n)
-		{
-			if(set.find(s[j]) == set.end()) //If the character does not in the set
-			{
-				set.insert(s[j++]); //Insert the character in set and update the j counter
-				ans = max(ans, j-i); //Check if the new distance is longer than the current answer
-			}
-			else
-			{
-				set.erase(s[i++]); 
-				/*If character does exist in the set, ie. it is a repeated character, 
-				we update the left side counter i, and continue with the checking for substring. */
-			}
-		}
-    
-		return ans;
+        int i=0,j=0;
+        unordered_map<char,int>mp;
+        int maxi=0;
+        while(j<s.size()){
+            mp[s[j]]++;
+            if(mp.size()==j-i+1){
+                maxi=max(maxi,j-i+1);
+            }
+            else if(mp.size()<j-i+1){
+                while(mp.size()<j-i+1){
+                   mp[s[i]]--;
+                   if(mp[s[i]]==0){
+                    mp.erase(s[i]);
+                    }
+                    i++;
+                }
+            }
+            j++;
+        }
+        return maxi;
     }
 };
