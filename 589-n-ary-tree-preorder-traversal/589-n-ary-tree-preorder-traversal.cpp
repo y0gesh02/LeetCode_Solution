@@ -6,7 +6,7 @@ public:
         for(int i=0;i<root->children.size();i++){
             preorder(root->children[i],ans);
         }
-        return;
+        
     }
     vector<int> preorder(Node* root) {
         vector<int>ans;
