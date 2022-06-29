@@ -5,7 +5,7 @@ public:
         for(char it: s){
             freq[it-'a']++;
         }
-        set<int>st;
+        unordered_set<int>st;
         int ans=0;
         for(int i=0;i<26;i++){
             while(freq[i] && st.find(freq[i])!=st.end() ){
