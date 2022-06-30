@@ -1,17 +1,21 @@
 class Solution {
 public:
-//     void solve(TreeNode* l,TreeNode* r){
-//         if(l==NULL || )return ;
-//         solve(l->left,r->right);
-//         TreeNode* 
-//         solve(r->left,r->right);
-        
-//     }
+    
     TreeNode* invertTree(TreeNode* root) {
-        if(root==NULL) return NULL;
-        invertTree(root->left);
-        invertTree(root->right);
-        swap(root->left,root->right);
+        stack<TreeNode*>st;
+        st.push(root);
+        while(!st.empty()){
+            TreeNode* node= st.top();
+            st.pop();
+            if(node!=NULL){
+               st.push(node->left);
+                st.push(node->right);
+                swap(node->left,node->right);
+            }
+            
+            
+        }
         return root;
+        
     }
 };
