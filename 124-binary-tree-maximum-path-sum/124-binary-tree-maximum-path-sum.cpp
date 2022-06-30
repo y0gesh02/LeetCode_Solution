@@ -9,7 +9,7 @@ public:
         if(root==NULL)return 0;
         int ls=max(0,solve(root->left,maxi));
         int rs=max(0,solve(root->right,maxi));
-        maxi=max(maxi,root->val+ls+rs);
-        return root->val + max(ls,rs);
-    }
+        maxi=max(maxi,ls+rs+root->val);
+        return root->val+max(ls,rs);
+    }  
 };
