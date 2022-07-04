@@ -10,14 +10,9 @@ public:
             q.pop();
             TreeNode *right=q.front();
             q.pop();
-            if(left==NULL && right==NULL){
-                continue;
-            }
-             if(left==NULL || right==NULL){
-                return false;
-            }
-            if(left->val!=right->val)
-                return false;
+           if(left==NULL && right==NULL) continue;
+           if(left==NULL || right==NULL)return false;
+           if(left->val!=right->val)return false;
             q.push(left->left);
             q.push(right->right);
             q.push(left->right);
