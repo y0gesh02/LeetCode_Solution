@@ -18,9 +18,13 @@ public:
             }
             if(l%2==0){
                 reverse(levels.begin(),levels.end());
+                ans.push_back(levels);
+            }
+            else{
+              ans.push_back(levels);  
             }
             l++;
-            ans.push_back(levels);
+            
         }
         return ans;
     }
