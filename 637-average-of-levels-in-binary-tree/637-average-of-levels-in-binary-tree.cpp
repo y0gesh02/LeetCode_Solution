@@ -5,9 +5,9 @@ public:
         if(root==NULL) return ans;
         queue<TreeNode*>q;
         q.push(root);
-        double sum=0;
         while(!q.empty()){
             int n=q.size();
+            double sum=0;
             for(int i=0;i<n;i++){
                 TreeNode* node=q.front();
                 q.pop();
@@ -17,7 +17,6 @@ public:
                
             }
             ans.push_back(sum/n);
-            sum=0;
         }
         return ans;
     }
