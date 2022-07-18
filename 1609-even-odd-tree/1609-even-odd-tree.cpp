@@ -18,15 +18,11 @@ public:
                 if(level%2==0){
                     if(i<n-1 && lval[i]>=lval[i+1])return false;
                     if(lval[i]%2==0 ) return false;
-                    // else if(level%2!=0 && lval[i]%2!=0) return false;
                 }
                 else{
                    if(i<n-1 && lval[i]<=lval[i+1])return false;
-                   //if(level%2==0 && lval[i]%2==0 ) return false;
-                    if( lval[i]%2!=0) return false; 
+                   if( lval[i]%2!=0) return false; 
                 }
-                
-                
             }
             level+=1;
         }
