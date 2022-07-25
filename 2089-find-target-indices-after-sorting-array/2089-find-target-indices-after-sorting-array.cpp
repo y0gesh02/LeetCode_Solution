@@ -3,9 +3,15 @@ public:
     vector<int> targetIndices(vector<int>& nums, int target) {
         vector<int>ans;
         int n=nums.size();
-        sort(nums.begin(),nums.end());
-        for (int i = 0; i < n; ++i) {
-            if (nums[i] == target) ans.push_back(i);
+        int cnt=0; int rank=0;
+        
+        for (auto it:nums) {
+            if(it==target)cnt++;
+            if(it<target)rank++;
+        }
+        while(cnt--){
+            ans.push_back(rank);
+            rank++;
         }
         return ans;
     }
