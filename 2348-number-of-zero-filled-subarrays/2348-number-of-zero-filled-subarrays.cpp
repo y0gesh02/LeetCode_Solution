@@ -4,22 +4,19 @@ public:
         long long n=nums.size();
         long long ans=0;
         long long i=0;
-        
+        long long cnt=0;
         while(i<n){
-            long long cnt=0;
+            
            if(nums[i]==0){
                  
-                while(i<n && nums[i]==0 ){
-                    cnt+=1;
-                    i+=1;
-                }
-                ans+=(cnt*(cnt+1))/2;
+               cnt+=1;
+               ans+=cnt;
                 
             }
             else{
-                i+=1;
+                cnt=0;
             }
-            
+            i+=1;
           
         }
         return ans;
