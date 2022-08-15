@@ -1,18 +1,21 @@
 class Solution {
 public:
-    string largestGoodInteger(string s) {
-        int n=s.size();
-        string maxi="";
-     
-        for(int i=0;i<n;i++){
-            if(i<n-2 && s[i]==s[i+1] && s[i]==s[i+2]){
-               string str ={s[i],s[i+1],s[i+2]};
-                
-                maxi=max(maxi,str);
-                // str.clear();
+    string largestGoodInteger(string num) {
+        string ans="";
+        int n=num.size();
+        for(int i=0;i<n-2;i++){
+            if(num[i]==num[i+1] && num[i]==num[i+2]){
+                if(ans==""){
+                    ans+=num[i];
+                        ans+=num[i+1];ans+=num[i+2];
+                }
+                else if(ans.back()<num[i]){
+                    ans="";
+                    ans+=num[i];
+                        ans+=num[i+1];ans+=num[i+2];
+                }
             }
         }
-        // string ans=to_string(maxi);
-        return maxi;
+        return ans;
     }
 };
