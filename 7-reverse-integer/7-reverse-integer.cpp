@@ -4,7 +4,11 @@ public:
         long long num=0;
          if(x>=2147483647 || x<=-2147483648)
             return 0;
-        if(x>0){
+        bool flag=false;
+        if(x<0) {
+            x=x*-1;
+            flag=true;
+        }
             while(x>0){
                 num=num*10;
                 if(num>=2147483647 || num<=-2147483648)
@@ -12,18 +16,9 @@ public:
                 num=num+(x%10);
                 x=x/10;
             }
-        }
-        else{
-            x=x*-1;
-              while(x>0){
-                num=num*10;
-                  if(num>=2147483647 || num<=-2147483648)
-                    return 0;
-                num=num+(x%10);
-                x=x/10;
-            }
-            num*=-1;
-        }
-        return num;
+        
+       
+        
+        return flag==true?-num:num;
     }
 };
