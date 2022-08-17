@@ -9,7 +9,7 @@ public:
             x=x*-1;
             flag=true;
         }
-            while(x>0){
+        while(x>0){
                 num=num*10;
                 if(num>=2147483647 || num<=-2147483648)
                     return 0;
@@ -17,8 +17,8 @@ public:
                 x=x/10;
             }
         
-       
+       if(flag==true) return -num;
         
-        return flag==true?-num:num;
+        return num;
     }
 };
