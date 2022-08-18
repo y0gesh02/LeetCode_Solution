@@ -5,26 +5,20 @@ public:
         unordered_map<int ,int>mp;
         for(auto it:arr) mp[it]++;
         int half=n/2;
-        vector<int>res;
-        for(auto it:mp)res.push_back(it.second);
-        sort(res.begin(),res.end());
-        int m=res.size();
+        priority_queue<int> pq;
+        for(auto it:mp)pq.push(it.second);
         int sum=0;
-        for(int i=m-1;i>=0;i--){
-            sum+=res[i];
+        int ans=0;
+        while(sum<half){
+            sum+=pq.top();pq.pop();
+            ans+=1;
             if(sum>=half){
-               return m-i;
+               return ans;
             }
         }
         return 0;
     }
 };
 
-// 3->4
-// 5->3
-// 2->2
-// 7->1
-//     //5
-    
-//     // 1 2 3 4
+
     
