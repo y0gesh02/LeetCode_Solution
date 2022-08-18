@@ -5,7 +5,6 @@ public:
         unordered_map<int ,int>mp;
         for(auto it:arr) mp[it]++;
         int half=n/2;
-        int ans=INT_MAX;
         vector<int>res;
         for(auto it:mp)res.push_back(it.second);
         sort(res.begin(),res.end());
@@ -14,11 +13,10 @@ public:
         for(int i=m-1;i>=0;i--){
             sum+=res[i];
             if(sum>=half){
-               // sum=0;
-                ans=min(ans,m-i);
+               return m-i;
             }
         }
-        return ans;
+        return 0;
     }
 };
 
