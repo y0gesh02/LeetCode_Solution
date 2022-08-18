@@ -9,6 +9,9 @@ public:
             window[s1[i]-'a']++;
             freq[s2[i]-'a']++;
         }
+        if(window==freq){
+               return true;
+         }
         int i=0;
         while(k<len){
             if(window==freq){
