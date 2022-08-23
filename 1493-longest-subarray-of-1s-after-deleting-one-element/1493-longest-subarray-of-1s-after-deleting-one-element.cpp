@@ -10,14 +10,11 @@ public:
             while(cnt>1){
                if(nums[i]==0){
                    cnt-=1;
-                   
-               } 
+                } 
                 i++;
-                
-            }
+             }
             ans=max(ans,j-i);
-           j++;
-            
+             j++;
         }
         return ans;
     }
