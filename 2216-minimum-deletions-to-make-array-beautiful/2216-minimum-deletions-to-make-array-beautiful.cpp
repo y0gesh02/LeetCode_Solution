@@ -13,7 +13,7 @@ public:
                     }
                 }
             }
-            if ((nums.size() - shift) % 2 )
+            if ((nums.size() - shift) % 2 ) // if odd one more
             {
                 shift++;
             }
