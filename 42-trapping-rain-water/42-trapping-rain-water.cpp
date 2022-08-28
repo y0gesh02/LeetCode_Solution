@@ -13,8 +13,7 @@ public:
         }
          int ans = 0;
         for (int i = 0; i < n; i++) {
-            int waterLevel = min(leftMax[i], rightMax[i]);
-             ans += waterLevel - height[i];
+             ans += min(leftMax[i], rightMax[i]) - height[i];
         }
         return ans;
     }
