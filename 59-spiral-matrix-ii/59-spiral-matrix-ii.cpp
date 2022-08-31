@@ -1,12 +1,8 @@
 class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
-         vector<vector<int>>ans (n,vector<int>(n,0));
-        int rowstart=0;
-        int rowend=n-1;
-        int colstart=0;
-        int colend=n-1;
-       
+       vector<vector<int>>ans (n,vector<int>(n,0));
+        int rowstart=0,rowend=n-1,colstart=0,colend=n-1;
         int count=1;
         int total=n*n;
         while(count<=total){
