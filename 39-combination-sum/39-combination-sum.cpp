@@ -1,24 +1,25 @@
 class Solution {
 public:
-     void subset(int idx,vector<int>& candidates,int target,vector<vector<int>>&ans,vector<int>&temp){
-        if(target==0){
-        ans.push_back(temp);
+    void solve(int idx,vector<vector<int>>&ans, vector<int>&temp,vector<int>& nums,int k,int&n ){
+        if(k==0){
+            ans.push_back(temp);
             return;
         }
-        if(target<0){
+        if(k<0){
             return;
         }
-        for(int i=idx;i<candidates.size();i++){
-            temp.push_back(candidates[i]);
-            subset(i,candidates,target-candidates[i],ans,temp);
-            temp.pop_back();
-        }
+         for(int i=idx;i<n;i++){
+              temp.push_back(nums[i]);
+              solve(i,ans,temp,nums,k-nums[i],n);
+             
+              temp.pop_back();
+          }  
     }
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-         vector<vector<int>>ans;
-         vector<int>temp;
-        subset(0,candidates,target,ans,temp);
+    vector<vector<int>> combinationSum(vector<int>& nums, int target) {
+        int n=nums.size();
+        vector<vector<int>>ans;
+        vector<int>temp;
+        solve(0,ans,temp,nums,target,n);
         return ans;
-        
     }
 };
