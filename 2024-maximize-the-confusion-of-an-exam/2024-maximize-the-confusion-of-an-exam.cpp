@@ -1,23 +1,26 @@
 class Solution {
 public:
-    int solve(string&s ,char x,int k){
-        int i=0,j=0;
+    int maxConsecutiveAnswers(string s, int k) {
+        int i=0;
         int n=s.size();
+        int j=0;
         int ans=0;
-        int cnt=0;
+        int cntT=0,cntF=0;
         while(j<n){
-            if(s[j]==x)cnt++;
-            while(cnt>k){
-                if(s[i]==x)cnt--;
-                i++;
+            if(s[j]=='T')cntT++;
+            else cntF++;
+      
+            while(min(cntT,cntF)>k){
+              if(s[i]=='T')cntT--;
+              else cntF--;
+                  i++;
+                
             }
-            ans=max(ans,j-i+1);
-         
+             ans=max(ans,j-i+1); 
+           
+            
         j++;
         }
         return ans;
-    }
-    int maxConsecutiveAnswers(string s, int k) {
-       return max(solve( s,'T' ,k),solve(s,'F',k));
     }
 };
