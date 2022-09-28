@@ -1,16 +1,12 @@
 class Solution {
 public:
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        int preStart=0,inStart=0,inEnd=inorder.size()-1,preEnd=preorder.size()-1;
-        map<int ,int>mp;
-        for(int i=0;i<inorder.size();i++)mp[inorder[i]]=i;
-        return solve(preorder,inorder,preStart,preEnd,inStart,inEnd,mp);
-    }
-    
+ 
     TreeNode* solve(vector<int>& preorder, vector<int>& inorder,int preStart,int preEnd,int inStart, int inEnd, map < int, int > & mp) {
+        
         if (preStart > preEnd || inStart > inEnd) return NULL;
         
         TreeNode* curr= new TreeNode(preorder[preStart]);
+        
         int posRoot=mp[curr->val];
         int nEle=posRoot-inStart;
         
@@ -20,9 +16,12 @@ public:
             
         
         return curr;
-        
-        
-        
+    }
+       TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        int preStart=0,inStart=0,inEnd=inorder.size()-1,preEnd=preorder.size()-1;
+        map<int ,int>mp;
+        for(int i=0;i<inorder.size();i++)mp[inorder[i]]=i;
+        return solve(preorder,inorder,preStart,preEnd,inStart,inEnd,mp);
     }
     
     
