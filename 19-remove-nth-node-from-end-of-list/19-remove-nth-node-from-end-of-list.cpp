@@ -8,21 +8,24 @@ public:
             cnt+=1;
         }
         int r=cnt-n;
-        if(cnt==n){
-            ListNode* temp1 = head;
-            head = head->next;
-            return head;
+        // cout<<r;
+        if(n==cnt){
+           
+            return  head->next;
         }
         temp=head;
         cnt=1;
         while(temp->next!=NULL){
-             if(cnt==r){
-                 temp->next=temp->next->next;
-                 break;
-             }
-             temp=temp->next;
-             cnt+=1;
-         }
+            if(cnt==r){
+               temp->next=temp->next->next;
+                break;
+            }
+            cnt+=1;
+            temp=temp->next;
+        }
+        
         return head;
+        
+        
     }
 };
