@@ -2,8 +2,22 @@ class Solution {
 public:
     TreeNode* insertIntoBST(TreeNode* root, int val) {
         if(root==NULL) return new TreeNode(val);
-        if(root->val>val)root->left=insertIntoBST(root->left,val);
-        else root->right=insertIntoBST(root->right,val);
+        TreeNode* curr=root;
+        while(true){
+            if(curr->val > val){
+                if(curr->left==NULL){
+                    curr->left=new TreeNode(val);
+                    break;}
+                else curr=curr->left;
+                    
+           }
+            else{
+              if(curr->right!=NULL)curr=curr->right;
+                else {curr->right=new TreeNode(val);
+                   break;
+                     }
+            }
+        }
         return root;
     }
 };
