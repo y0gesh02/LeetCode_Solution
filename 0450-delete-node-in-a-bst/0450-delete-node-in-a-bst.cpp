@@ -8,12 +8,14 @@ public:
             if(root->val>key){
                 if(root->left!=NULL && root->left->val==key){
                     root->left=solve(root->left);
+                    break;
                 }
                 else root=root->left; 
             }
             else{
                if(root->right!=NULL && root->right->val==key){
                    root->right=solve(root->right);
+                   break;
                } 
                 else root=root->right;
             }
