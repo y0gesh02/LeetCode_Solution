@@ -12,10 +12,10 @@ public:
                     
            }
             else{
-              if(curr->right!=NULL)curr=curr->right;
-                else {curr->right=new TreeNode(val);
-                   break;
-                     }
+               if(curr->right==NULL){
+                    curr->right=new TreeNode(val);
+                    break;}
+                else curr=curr->right;
             }
         }
         return root;
