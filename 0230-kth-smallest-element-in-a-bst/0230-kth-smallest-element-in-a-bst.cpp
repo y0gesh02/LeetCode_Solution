@@ -1,18 +1,17 @@
 class Solution {
 public:
     int kthSmallest(TreeNode* root, int k) {
-        int ans;
-        solve(root,k,ans);
-        return ans;
+        vector<int>ans;
+       solve(root,k,ans);
+        return ans[k-1];
     }
-    void solve(TreeNode* root, int&k,int& ans){
+    void solve(TreeNode* root, int k,vector<int>&ans){
         if(root==NULL)return ;
-        if(root->left!=NULL) solve(root->left,k,ans);
-         k-=1;
-        if(k==0){
-            ans=root->val;
-            return;
-        }
-        if(root->right!=NULL) solve(root->right,k,ans);
-     }
+        
+        if(root->left!=NULL)solve(root->left,k,ans);
+        ans.push_back(root->val);
+        if(ans.size()>k)return;
+        if(root->right!=NULL)solve(root->right,k,ans);
+     
+    }
 };
