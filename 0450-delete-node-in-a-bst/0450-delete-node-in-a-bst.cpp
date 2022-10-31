@@ -3,17 +3,17 @@ public:
     TreeNode* deleteNode(TreeNode* root, int key) {
         if(root==NULL)return NULL;
         if(root->val==key)return solve(root);
-         TreeNode*dummy=root;
+        TreeNode*dummy=root;
         while(root!=NULL){
             if(root->val>key){
-                if(root->left!=NULL && root->left->val==key){
+                if( root->left!=NULL && root->left->val==key){
                     root->left=solve(root->left);
                     break;
                 }
                 else root=root->left; 
             }
             else{
-               if(root->right!=NULL && root->right->val==key){
+               if(root->right!=NULL  && root->right->val==key){
                    root->right=solve(root->right);
                    break;
                } 
@@ -23,8 +23,8 @@ public:
         return dummy;
     }
     TreeNode* solve(TreeNode* root){
-        if(root->left==NULL)return root->right;
-        if(root->right==NULL)return root->left;
+        if(root->left==NULL)return root->right; //edge case
+        if(root->right==NULL)return root->left; //edge case
         TreeNode* rightChild=root->right;
         TreeNode*rightMost=findrightMost(root->left);
         rightMost->right=rightChild;
